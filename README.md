@@ -58,5 +58,6 @@
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
 
+
 ### Association
 - has_one :purchase_user
