@@ -1,15 +1,15 @@
 ## usersテーブル
 
-| Column           |  Type      | Options                        |
-| ------           | ---------- | ------------------------------ |
-| nickname         | string     | null: false                    |
-| email            | string     | null: false,unique: true       |
-| encrypted_password         | string     | null: false                    |
-| last_name_kanji  | string     | null: false                    |
-| first_name_kanji | string     | null: false                    |
-| last_name_kana   | string     | null: false                    |
-| first_name_kana  | string     | null: false                    |
-| birthday         | date       | null: false                    |
+| Column            |  Type      | Options                        |
+| ------            | ---------- | ------------------------------ |
+| nickname          | string     | null: false                    |
+| email             | string     | null: false,unique: true       |
+| encrypted_password| string     | null: false                    |
+| last_name_kanji   | string     | null: false                    |
+| first_name_kanji  | string     | null: false                    |
+| last_name_kana    | string     | null: false                    |
+| first_name_kana   | string     | null: false                    |
+| birthday          | date       | null: false                    |
 
 ### Association
 * has_many :items
@@ -51,7 +51,7 @@
 | Column        | Type       | Options                        |
 | ------        | ---------- | ------------------------------ |
 | purchase_user | references | foreign_key: true              |
-| postcode      | string     | null: false                    |
+| post_code      | string     | null: false                    |
 | area_id       | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block         | string     | null: false                    |
@@ -59,4 +59,4 @@
 | phone_number  | string     | null: false                    |
 
 ### Association
-- has_one :purchase_user
+- belongs_to :purchase_user
