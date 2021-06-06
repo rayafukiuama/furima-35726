@@ -4,7 +4,7 @@
 | ------           | ---------- | ------------------------------ |
 | nickname         | string     | null: false                    |
 | email            | string     | null: false,unique: true       |
-| password         | string     | null: false                    |
+| encrypted_password         | string     | null: false                    |
 | last_name_kanji  | string     | null: false                    |
 | first_name_kanji | string     | null: false                    |
 | last_name_kana   | string     | null: false                    |
@@ -44,7 +44,7 @@
 ### Association
 - belongs_to :user
 - has_one :address
-- has_one :item
+- belongs_to :item
 
 ## addresses テーブル
 
