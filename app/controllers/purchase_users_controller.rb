@@ -10,6 +10,7 @@ class PurchaseUsersController < ApplicationController
 
   def create
     @purchase_user_address = PurchaseUserAddress.new(purchase_user_params)
+    @purchase_user_address = PurchaseUserAddress.new(rizu_params)
     if @purchase_user_address.valid?
       pay_item
       @purchase_user_address.save
@@ -30,7 +31,7 @@ class PurchaseUsersController < ApplicationController
   end
 
   def purchase_user_params
-    params.require(:purchase_user_address).permit(:user, :item, :post_code, :area_id, :city, :block, :phone_number, :price).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:purchase_user_address).permit(:post_code, :area_id, :city, :block, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
