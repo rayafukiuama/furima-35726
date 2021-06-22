@@ -1,5 +1,5 @@
 class PurchaseUsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :raya_params, only: [:index, :create]
   before_action :rizu_params, only: [:index]
 
