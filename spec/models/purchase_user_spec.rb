@@ -17,9 +17,6 @@ RSpec.describe PurchaseUserAddress, type: :model do
         @purchase_user_address.building = ''
         expect(@purchase_user_address).to be_valid
       end
-      it "priceとtokenがあれば保存ができること" do
-        expect(@purchase_user_address).to be_valid
-      end
     end
 
     context '内容に問題がある場合' do
@@ -54,7 +51,7 @@ RSpec.describe PurchaseUserAddress, type: :model do
         expect(@purchase_user_address.errors.full_messages).to include ("Post code is invalid")
       end
       it "area_idを選択していないと保存できないこと" do
-        @purchase_user_address.area_id= ''
+        @purchase_user_address.area_id= nil
         @purchase_user_address.valid?
         expect(@purchase_user_address.errors.full_messages).to include ("Area can't be blank")
       end
@@ -107,6 +104,11 @@ RSpec.describe PurchaseUserAddress, type: :model do
         @purchase_user_address.item_id = nil
         @purchase_user_address.valid?
         expect(@purchase_user_address.errors.full_messages).to include ("Item can't be blank")
+      end
+      it "cityが空だと保存できないこと" do
+        @purchase_user_address.city = ''
+        @purchase_user_address.valid?
+        expect(@purchase_user_address.errors.full_messages).to include ("City can't be blank")
       end
     end
   end
